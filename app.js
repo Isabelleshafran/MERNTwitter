@@ -4,6 +4,7 @@ const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
+const bodyParser = require('body-parser');
 
 mongoose
   .connect(db, { 
@@ -13,6 +14,9 @@ mongoose
   .catch(err => console.log(err));
 
 app.get("/", (req, res) => res.send("MERN"));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/tweets", tweets);

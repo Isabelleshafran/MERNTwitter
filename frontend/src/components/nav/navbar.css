@@ -1,0 +1,24 @@
+.NavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
+}
+
+.NavBar button {
+    height: 20px;
+}
+
+.Links1 {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.Links2 {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}

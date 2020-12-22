@@ -29,7 +29,7 @@ class NavBar extends React.Component {
         return (
             <div className="Links2"> 
                 <Link to={'/signup'}>Create Account</Link>
-                <Link to={'/login'}>Login</Link>
+                <Link to={'/login'}>Log in</Link>
             </div>
         );
       }
@@ -38,7 +38,9 @@ class NavBar extends React.Component {
   render() {
       return (
         <div className="NavBar">
+          <div className="Links">
             { this.getLinks() }
+          </div>
         </div>
       );
   }

@@ -1,13 +1,12 @@
 import React from 'react';
+import './main.css'
 
 class MainPage extends React.Component {
     render() { 
         return ( 
-            <div>
-                <h1>A Twitter Clone</h1>
-                <footer>
-                    Copyright &copy; 2019 Chirper 
-                </footer>
+            <div className="main">
+                <img alt="pic" src="twitterlogo.jpg"/>
+                <h1>See what’s happening in the world right now</h1>
             </div>
          );
     }

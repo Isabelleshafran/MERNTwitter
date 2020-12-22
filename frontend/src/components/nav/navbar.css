@@ -3,22 +3,35 @@
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 1px solid lightgrey;
+    height: 65px;
+    position: fixed;
+    background-color: white;
+    width: 100%;
 }
 
 .NavBar button {
     height: 20px;
 }
 
+.Links {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
 .Links1 {
     width: 400px;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+
+}
+
+.Links2:hover {
+    cursor: pointer;
 }
 
 .Links2 {
     width: 150px;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
 }

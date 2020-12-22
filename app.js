@@ -19,6 +19,7 @@ mongoose
 
 // app.get("/", (req, res) => res.send("MERN"));
 
+// app can respond to postman 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

@@ -80,6 +80,7 @@ router.post('/login', (req, res) => {
             if(!user){
                 errors.handle = 'This user does not exist';
                 return res.status(400).json(errors);
+                // return res.status(400).json('user doesnt exist')
             }
 
             bcrypt.compare(password, user.password)
@@ -100,6 +101,7 @@ router.post('/login', (req, res) => {
                     } else {
                         errors.password = "Incorrect Password";
                         return res.status(400).json(errors);
+                        // return res.status(400).json('wrong password')
                     }
                 });
         });

@@ -62,13 +62,13 @@ router.post('/login', (req, res) => {
         return res.status(400).json(errors)
     }
     
-    const email = req.body.email;
+    const handle = req.body.handle;
     const password = req.body.password; 
 
-    User.findOne({email})
+    User.findOne({handle})
         .then(user => {
             if(!user){
-                errors.email = 'user not found';
+                errors.handle = 'user not found';
                 return res.status(400).json(errors);
                 // return res.status(400).json('user doesnt exist')
             }
@@ -76,7 +76,7 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if(isMatch) {
-                        const payload = {id: user.id, email: user.email};
+                        const payload = {id: user.id, handle: user.handle};
 
                         jwt.sign(
                             payload, 

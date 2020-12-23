@@ -11,8 +11,9 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        // console.log(this.props.currentUser.id)
+        console.log(this.props)
         this.props.fetchUserTweets(this.props.currentUser.id);
+   
     }
 
     componentDidUpdate(prevProps){
@@ -27,17 +28,29 @@ class Profile extends React.Component {
 
     render() {
         if (this.state.tweets.length === 0) {
-          return (<div>This user has no Tweets</div>)
-        } else {
+          
           return (
             <div>
+               <br/>
+                  <br/>
+                  <br/>
+                <br/>
+                  <br/>
+                  <br/>
+              <div>No Tweets!</div>
+            </div>
+              
+          )
+        } else {
+          return (
+            <div className="tweet-container">
               <br/>
               <br/>
               <br/>
               
-              <h2>My Tweets</h2>
+              <h2>{this.props.currentUser.handle}'s tweets</h2>
               {this.state.tweets.map(tweet => (
-                <TweetBox key={tweet._id} text={tweet.text} />
+                <TweetBox key={tweet._id} text={tweet.text} handle={this.props.currentUser.handle}/>
               ))}
             </div>
           );

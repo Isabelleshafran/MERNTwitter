@@ -12,10 +12,9 @@ class TweetCompose extends React.Component {
          this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-
-    // componentWillReceiveProps(nextProps) {
-    //     this.setState({newTweet: nextProps.newTweet.text});
-    // }   
+  componentWillReceiveProps(nextProps) {
+      this.setState({newTweet: nextProps.newTweet.text});
+  }
 
 
   handleSubmit(e) {
@@ -55,7 +54,7 @@ render() {
                 </div>
             </form>
             <br />
-            <TweetBox text={this.state.newTweet} />
+            <TweetBox text={this.state.newTweet} handle={this.props.currentUser.hanlde}/>
         </div>
     )
   }

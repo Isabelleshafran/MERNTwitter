@@ -19,18 +19,19 @@ class Tweet extends React.Component {
     }
 
     render() { 
+        console.log(this.props)
        if(this.state.tweets.length === 0){
            return (<div>No Tweets</div>)
        } else {
            return (
-               <div>
+               <div className="tweet-container">
                    <br/>
                    <br/>
                    <br/>
-
-                   <h2>All Tweets</h2>
+                   <h2 className="home">Home</h2>
+                   
                     {this.state.tweets.map(tweet => {
-                        return <TweetBox key={tweet._id} text={tweet.text}/>
+                        return <TweetBox key={tweet._id} text={tweet.text} />
                     })}
                </div>
            )

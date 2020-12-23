@@ -2,11 +2,15 @@ const mongoose = require('mongoose');
 const express = require("express");
 const app = express();
 const db = require('./config/keys').mongoURI;
+// const db = process.env.MONGO_URI
 const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
+
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -16,9 +20,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-app.use(passport.initialize());
-require('./config/passport')(passport);
-
 mongoose
   .connect(db, { 
       useNewUrlParser: true, 
@@ -26,7 +27,6 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-// app.get("/", (req, res) => res.send("MERN"));
 
 // app can respond to postman 
 app.use(bodyParser.urlencoded({ extended: false }));
